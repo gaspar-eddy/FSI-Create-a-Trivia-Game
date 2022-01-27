@@ -80,3 +80,44 @@ let questions = [
       correctAnswer: "C"
     }
   ]
+
+// Declare variables
+let userName = window.prompt('Please enter your name:')
+let userScore = 0
+let playAgain = true
+
+// Function playGame displays questions and adds points to userScore 
+function playGame() {
+  for (let i = 0; i < questions.length; i++) {
+
+    let question = questions[i]
+  
+    let userAnswer = window.prompt(question.text)
+  
+    if (userAnswer === question.correctAnswer) {
+      userScore = userScore + 10
+    }
+  }
+  
+  // Display final score
+  window.alert('Your score is: ' + userScore)
+}
+
+// While loop to determine if user wants to play again
+while (playAgain === true) {
+  playGame()
+
+  let userChoice = window.prompt('Would you like to play the game again? Answer yes or no')
+
+  if (userChoice === 'yes') {
+    // Reset score back to zero
+    userScore = 0
+
+    playAgain = true
+
+  } else {
+    playAgain = false
+
+    window.alert('Thanks for playing the game!')
+  }
+}
